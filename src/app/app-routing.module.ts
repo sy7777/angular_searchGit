@@ -6,7 +6,6 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 
 // 展示路由组件第一步即可切换组件，需要创建组件，例如personalinfo,定义路由路径和规则，在想展示的文件里面写<router-outlet>
-// c
 const routes: Routes = [
   {
     path: "dashboard", component: DashboardComponent,
