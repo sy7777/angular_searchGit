@@ -1,0 +1,66 @@
+1) 创建Angular项目,需要在工作目录(目前是Ang-project目录不是Workshop目录)运行命令ng new <项目名>来创建,
+   然后cd创建好的项目目录运行ng serve --open (简写ng s -o)来编译运行项目.
+2) 为项目创建东西(例如类或组件等)使用命令 ng g 可以看到能创建什么,然后重新输入ng g <要创建的东西> <要创建东西的路径>进行创建.
+3) 当项目增加组件后会自动在app.module.ts里引入组件,此文件是Angular项目的根模块, 告诉Angular如何组装应用,每个组件都有对应的***.component.html,
+    ***.component.ts和***.component.css组成,其中***是创建组件时起的名字.
+4) 如果想将组件添加到html里只需要手写tag就行,例如将<app-menu></app-menu>添加到app.component.html(相当于App.vue)中;
+    注意组件名叫menu,但引入到html标签时叫<app-menu></app-menu>以此类推
+5) 插值数据绑定:{{}},每个组件的数据放到每个组件的***.component.ts中,以成员变量的形式存在.
+6) 单向属性据绑定: [], 例如[value] = "name", 类似v-bind(:).
+7) 双向数据绑定: [(ngModel)] = "***" 其中***是ts里的成员属性, 类比v-model, 注意需要在app.module.ts里引入FormsModules或ReactiveFormsModules(可以响应式数据);
+8) 解析html字符串: [innerHTML], 例如<div [innerHTML] = "content"></div>, 类似v-html;
+9) 遍历数组: *ngFor = "let item of ***", 类比v-for;
+10) angular项目中的任何组件在引用assets文件夹下的静态资源时,路径只需要写"assets/**"就行;
+11) 条件判断: *ngIf, 类比v-if; 另外还有*ngSwitch
+12) 使用[ngClass]和[ngStyle]来绑定样式,类比v-bind绑定样式;
+13) 管道过滤器: '|',类比Vue的;
+14) 事件: (),类比v-on(@);
+15) radio的双向数据绑定会绑定radio的value与ts中的某个值, select的双向数据绑定会绑定下拉菜单未下拉时显示的数据和ts中的某个值, chekbox的
+    双向数据绑定会绑定checkbox是否被选中(boolean值)与ts中的一个boolean值.
+ 
+16) Angular服务(用来让组件之间使用共同的数据或方法): 运行命令ng g service ***来创建一个服务,
+    然后需要在app.module.ts里引入并注册服务. 组件之间无法互相调用,除非是父子组件,但组件可以调用服务,但服务无法调用组件.
+    组件调用服务的方法是先在组件ts文件中引入服务依赖,然后在构造器里初始化服务对象. 服务之间也可以相互调用.
+    注: 获取服务对象是单例模式,也就是说无论几个组件调用同一个服务,此服务对象都是一个,所以可以像Vuex那样组件之间共享数据.
+
+17) Angular操作DOM: 和Vue一样不建议使用原生方式操作(甚至不建议操作), 可以使用ViewChild操作(需要导包)
+    @ViewChild同样可以获子组件从而将子组件传递给父组件,代码在app.component.ts里,获取了hello组件
+
+18) Angular执行css3动画: 代码在hello组件里
+
+19) 父子组件以及组件通讯: a. 父子组件通讯(Vue中的props): 父组件将自身传给子组件(@Input), 子组件将自身传给父组件(@ViewChild)
+                        @Output + EventEmitter(不推荐)既可以让子组件获取父组件的属性,又可以让父组件获取子组件的属性(通过参数$event)
+                        b. 非父子组件通讯(Vuex): 使用Service
+
+20) 生命周期函数(生命周期钩子函数): 一共有9个(包括构造器),在lifecycle组件里展示,总的来说带init的只执行一次,带check的会根据数据变化执行多次
+
+21) RxJs异步数据流编程(类似Promise但比其强大): JS中异步的方式: a.回调函数 b. Promise c.RxJs; 代码在storage service和news新闻组件里
+
+22) Angular与Ajax请求: a.使用Angular内置模块: 首先需要在app.module.ts中引入http模块并注册, 
+                        然后在组件调用方引入HttpClient类并在构造器将实例初始化;
+                       b. 使用Axios: npm i axios -d --save, 其中--save是将依赖加入到package.json
+
+23) Angular路由: 根据url动态挂载和销毁组件. Angular的路由配置在app-routing.module.ts里,前提是创建项目时选择了加入路由配置.
+                展示路由的地方就是<router-outlet></router-outlet>
+
+24) Angular路由传值: a. GET传值(url的?后面传值),代码在newscontent和lifecycle里
+                    b. 动态路由传值(与Vue的相同,在路由配置里加占位符例如:id),代码在newscontent2和lifecycle里
+                    c. JS跳转路由,代码在newscontent2和lifecycle里
+                    d. 注意两种方式的router配置区别
+
+25) Angular的父子路由(嵌套路由): 在app.routing.modules.ts中进行配置子路由,然后在routerLink处需要把url改成"/父url/子url"
+
+26) Angular的自定义module: Angular提供了很多内置的modules例如: @angular/core(核心模块), @angular/common(通用模块), @angular/forms(表单模块),
+                                                            @angular/http(http请求模块) 等
+                          同时Angular也允许我们自定义模块: 当项目比较小时可以不用自定义模块,把所有模块都挂载到app根模块就行; 
+                          但是如果项目很大,用到了上百个模块,则如果把这些模块都挂载到app根模块上则会使得应用加载很慢,所以此时
+                          需要自定义模块.
+                          a. Angular创建模块命令: ng g module modules/user --routing 其中--routing可以给此模块创建路由配置文件;
+                          b. 然后可以在user模块下继续创建子组件: ng g component modules/user/components/userinfo;
+                          c. 同样可以为user模块创建组件,就像app模块也有自己的组件一样: ng g component modules/user
+                          d. 在app根模块中挂载user模块: 首先在app.module.ts中import user模块,然后挂载user模块,然后就可以在app根组件中使用user模块下的组件了
+                                                      注意:无法在app根组件使用user的其他非根组件因为当时只暴露了user模块的根组件,如果非要用要么暴露,要么在user
+                                                      跟组件中使用user模块下的其他组件,这样app模块的组件就间接使用到了user模块的其他组件
+
+27) Angular自定义模块配置路由: 在自定义模块的***-routing.module.ts中配置即可,但注意需要配置父子路由,父路由就是此模块的根组件,子路由
+                             是此模块的其他组件,这样最后挂载到app根模块中才不会占用app组件中的router-outlet
