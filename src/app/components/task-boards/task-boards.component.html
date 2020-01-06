@@ -1,0 +1,5 @@
+<p>task-boards works!</p>
+<input type="button" value="show" (click)="showBoard()">
+<div *ngFor="let item of taskBoard">
+    <button (click)="goOneBoard(item.boardId)">{{item.boardName}} </button>
+</div>

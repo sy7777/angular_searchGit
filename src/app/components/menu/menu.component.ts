@@ -9,7 +9,9 @@ export class MenuComponent implements OnInit {
 
   public isCollapsed: boolean;
   private menuList = [{ menuName: "PersonalInfo", path: ['/personal-info'], icon: "user" },
-  { menuName: "Login", path: ['/login'], icon: "video-camera" }];
+  { menuName: "Login", path: ['/login'], icon: "video-camera" },
+    { menuName: "TaskBoards", path: ['/task-boards'], icon: "radar-chart" }];
+
   constructor() { }
 
   ngOnInit() {

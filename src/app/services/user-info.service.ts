@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+// service可以传输HTTPS请求，也可以存储一些数据放在localstorage
 @Injectable({
   providedIn: 'root'
 })

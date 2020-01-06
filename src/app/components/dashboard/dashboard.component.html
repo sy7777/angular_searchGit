@@ -2,11 +2,12 @@
     <nz-sider id="ng-sider" nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
         <!-- 展示 -->
         <app-menu #menu>
-
+<!-- 子传父，在想传的子组件ts文件上，用#标记配合@viewchild -->
         </app-menu>
     </nz-sider>
     <nz-layout>
         <nz-header id="ng-header">
+            <!-- 父传子靠属性绑定，加input，在父组件先用#绑定 -->
             <app-header [dashboard]="this"></app-header>
         </nz-header>
 

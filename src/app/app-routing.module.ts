@@ -4,12 +4,18 @@ import { PersonalInfoComponent } from './components/personal-info/personal-info.
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { TaskBoardsComponent } from './components/task-boards/task-boards.component';
+import { OneBoardComponent } from './components/one-board/one-board.component';
 
 // 展示路由组件第一步即可切换组件，需要创建组件，例如personalinfo,定义路由路径和规则，在想展示的文件里面写<router-outlet>
 const routes: Routes = [
   {
     path: "dashboard", component: DashboardComponent,
-    children: [{ path: "personal-info", component: PersonalInfoComponent }, { path: "login", component: LoginComponent }]
+    children: [{ path: "personal-info", component: PersonalInfoComponent },
+    { path: "login", component: LoginComponent },
+    { path: "task-boards", component: TaskBoardsComponent },
+      { path: "task-board/:id", component: OneBoardComponent }]
+    // :id是一个占位符
   },
   //主页也是dashboard
   { path: "", redirectTo: "dashboard", pathMatch: "prefix" },

@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { UppercaseDisaplayPipe } from './pipes/uppercase-disaplay.pipe';
+import { TaskBoardsComponent } from './components/task-boards/task-boards.component';
+import { OneBoardComponent } from './components/one-board/one-board.component';
 
 registerLocaleData(en);
 
@@ -30,7 +32,9 @@ registerLocaleData(en);
     LoginComponent,
     RegisterComponent,
     HeaderComponent,
-    UppercaseDisaplayPipe
+    UppercaseDisaplayPipe,
+    TaskBoardsComponent,
+    OneBoardComponent
   ],
   //注册模块
   imports: [
