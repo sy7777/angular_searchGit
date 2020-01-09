@@ -11,16 +11,22 @@ import { OneBoardComponent } from './components/one-board/one-board.component';
 const routes: Routes = [
   {
     path: "dashboard", component: DashboardComponent,
-    children: [{ path: "personal-info", component: PersonalInfoComponent },
-    { path: "login", component: LoginComponent },
+    children: [{
+      path: '',
+      redirectTo: 'personal-info',
+      pathMatch: 'full'
+    }, { path: "personal-info", component: PersonalInfoComponent },
+    // { path: "login", component: LoginComponent },
     { path: "task-boards", component: TaskBoardsComponent },
-      { path: "task-board/:id", component: OneBoardComponent }]
     // :id是一个占位符
+    { path: "task-board/:id", component: OneBoardComponent }]
+
   },
-  //主页也是dashboard
-  { path: "", redirectTo: "dashboard", pathMatch: "prefix" },
+
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+  //主页也是dashboard
+  { path: "", redirectTo: "dashboard", pathMatch: "full" },
   //是输入乱码重定向到这页
   { path: "**", redirectTo: "dashboard" }
 

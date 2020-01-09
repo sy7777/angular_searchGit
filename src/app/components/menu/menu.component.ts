@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   public isCollapsed: boolean;
-  private menuList = [{ menuName: "PersonalInfo", path: ['/personal-info'], icon: "user" },
-  { menuName: "Login", path: ['/login'], icon: "video-camera" },
-    { menuName: "TaskBoards", path: ['/task-boards'], icon: "radar-chart" }];
+  private menuList = [{ isSelected: true , menuName: "Search Repository", path: ['/dashboard/task-boards'], icon: "github" },
+    { menuName: "PersonalInfo", path: ['/dashboard/personal-info'], icon: "user", isSelected: false}];
+  private sList = [{ menuName: "Log Out", path: ['/login'], icon: "logout" }];
 
   constructor() { }
 

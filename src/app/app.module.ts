@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AccordionModule, AlertModule, ButtonsModule } from 'bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +20,7 @@ import en from '@angular/common/locales/en';
 import { UppercaseDisaplayPipe } from './pipes/uppercase-disaplay.pipe';
 import { TaskBoardsComponent } from './components/task-boards/task-boards.component';
 import { OneBoardComponent } from './components/one-board/one-board.component';
+
 
 registerLocaleData(en);
 

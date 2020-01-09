@@ -13,7 +13,7 @@ export class PersonalInfoComponent implements OnInit {
   private isLoadingOne: boolean;
   private friendName: string;
   private friends: Array<string>;
-  private paths = "assets/123.jpg";
+  private paths = "assets/imgs/123.jpg";
   private dateTime = new Date();
   private r : boolean;
   private gender: string;

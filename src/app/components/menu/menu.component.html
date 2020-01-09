@@ -1,8 +1,14 @@
-<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" id="ng-menu" >
-    <div class="logo"></div>
-    <li nz-menu-item *ngFor="let item of menuList" nz-tooltip nzPlacement="right"
-      [nzTitle]="isCollapsed ? item.menuName : ''">
-        <a [routerLink]="item.path"><i nz-icon [nzType]="item.icon"></i>
-            <span>{{item.menuName}}</span></a>
-    </li>
+<ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed" id="ng-menu">
+  <div class="logo"></div>
+  <li nz-menu-item *ngFor="let item of menuList" nz-tooltip nzPlacement="right"
+    [nzTitle]="isCollapsed ? item.menuName : ''" [nzSelected]="item.isSelected">
+    <a [routerLink]="item.path"><i nz-icon [nzType]="item.icon"></i>
+      <span>{{item.menuName}}</span></a>
+  </li>
+  <nz-divider></nz-divider>
+  <li nz-menu-item *ngFor="let item of sList" nz-tooltip nzPlacement="right"
+    [nzTitle]="isCollapsed ? item.menuName : ''">
+    <a [routerLink]="item.path"><i nz-icon [nzType]="item.icon"></i>
+      <span>{{item.menuName}}</span></a>
+  </li>
 </ul>

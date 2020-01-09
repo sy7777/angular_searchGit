@@ -1,6 +1,63 @@
-<input nz-input placeholder="User Name" [(ngModel)]="username" />
+<!-- <input nz-input placeholder="User Name" [(ngModel)]="username" />
 <hr>
 <input nz-input placeholder="Password" [(ngModel)]="password" />
 <hr>
 <button nz-button nzType="primary" nzGhost=true (click)="login()">Log In</button>
-<button nz-button nzType="primary" nzGhost=true (click)="changename()">Change Name</button>
+<button nz-button nzType="primary" nzGhost=true (click)="changename()">Change Name</button> -->
+
+<div class="page login-page">
+  <div class="container d-flex align-items-center">
+    <div class="form-holder has-shadow">
+      <div class="row">
+        <!-- Logo & Information Panel-->
+        <div class="col-lg-6">
+          <div class="info d-flex align-items-center">
+            <div class="content">
+              <div class="logo">
+                <h1>Welcom To My Page</h1>
+              </div>
+              <p>Yuqi Sui</p>
+            </div>
+          </div>
+        </div>
+        <!-- Form Panel    -->
+        <div class="col-lg-6 bg-white">
+          <div class="form d-flex align-items-center">
+            <div class="content">
+              <form method="post" action="login.html" class="form-validate" id="loginFrom">
+                <div class="form-group">
+                  <input id="login-username" type="text" name="userName" required data-msg="enter user name" placeholder="userName"
+                    value="admin" class="input-material" [(ngModel)]="username">
+                </div>
+                <div class="form-group">
+                  <input id="login-password" type="password" name="passWord" required data-msg="enter pssword" placeholder="Password"
+                    class="input-material" [(ngModel)]="password">
+                </div>
+                <div id= "login-btn">
+                <button nz-button nzType="primary" nzGhost=true (click)="login()" class="btn btn-primary">Log
+                  In</button>
+                <button nz-button nzType="primary" nzGhost=true (click)="register()"
+                  class="btn btn-primary">Register</button>
+                </div>
+
+                <!-- <button id="login" type="submit"  nz-button nzType="primary" class="btn btn-primary" nzGhost=true
+                  (click)="login()">Login</button> -->
+                <div style="margin-top: -30px;">
+                  <!-- Remember Me -->
+
+                  <div class="custom-control custom-checkbox " style="float: right;">
+                    <input type="checkbox" class="custom-control-input" id="check1" name = "Remember Me">
+                    <label class="custom-control-label" for="check1">Remember&nbsp;&nbsp;</label>
+                  </div>
+
+                </div>
+              </form>
+              <br />
+        
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

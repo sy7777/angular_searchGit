@@ -1,2 +1,22 @@
-<i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
-    (click)="changeCollapse()"></i>
+<i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'" (click)="changeCollapse()"></i>
+
+
+
+
+<!-- </div> -->
+
+<!-- photo -->
+<div class="avater" nz-popover nzPopoverTitle="Current User" [nzPopoverContent]="contentTemplate"
+  nzPopoverPlacement="bottomRight">
+<nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+</div>
+
+<ng-template #contentTemplate>
+  <div>
+    <p>User Name:</p>
+    <p>admin</p>
+  </div>
+</ng-template>
+
+
+

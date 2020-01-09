@@ -1,0 +1,28 @@
+.container{
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+
+.search-layout {
+  height: 100%;
+  width: 100%;
+  padding: auto;
+  margin-top: 12px;
+ 
+}
+
+.global-search-item {
+  display: flex;
+}
+
+.global-search-item-desc {
+  flex: auto;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.global-search-item-count {
+  flex: none;
+}
