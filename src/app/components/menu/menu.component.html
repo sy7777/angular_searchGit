@@ -8,7 +8,7 @@
   <nz-divider></nz-divider>
   <li nz-menu-item *ngFor="let item of sList" nz-tooltip nzPlacement="right"
     [nzTitle]="isCollapsed ? item.menuName : ''">
-    <a [routerLink]="item.path"><i nz-icon [nzType]="item.icon"></i>
+    <a [routerLink]="item.path" (click)="logOut()"><i nz-icon [nzType]="item.icon"></i>
       <span>{{item.menuName}}</span></a>
   </li>
 </ul>

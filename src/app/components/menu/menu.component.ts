@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserInfoService } from 'src/app/services/user-info.service';
 
 @Component({
   selector: 'app-menu',
@@ -12,11 +13,13 @@ export class MenuComponent implements OnInit {
     { menuName: "PersonalInfo", path: ['/dashboard/personal-info'], icon: "user", isSelected: false}];
   private sList = [{ menuName: "Log Out", path: ['/login'], icon: "logout" }];
 
-  constructor() { }
+  constructor(private userService: UserInfoService) { }
 
   ngOnInit() {
   }
-
+logOut(){
+  this.userService.clearCurrentUser();
+}
 
 
 }

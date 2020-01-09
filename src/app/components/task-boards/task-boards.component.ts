@@ -28,11 +28,11 @@ export class TaskBoardsComponent implements OnInit {
 
   ngOnInit() {
 
-    this.token = this.userService.getUserInfo().token;
+    // this.token = this.userService.getUserInfo().token;
 
-    this.http.getTaskBoards(this.token).subscribe((data: any) => {
-      this.taskBoard = data.data;
-    });
+    // this.http.getTaskBoards(this.token).subscribe((data: any) => {
+    //   this.taskBoard = data.data;
+    // });
   }
 
   ngAfterViewInit(): void {

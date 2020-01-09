@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
 
   login(){
     if (this.username && this.password){
-      if (this.username == "admin" && this.password == 1234) {
+      const res = this.userService.checkLogin(this.username, this.password);
+      if (res) {
         this.router.navigateByUrl("/dashboard/task-boards");
         this.message.create("success", `Log in successfully`);
       }else{
@@ -37,6 +38,10 @@ export class LoginComponent implements OnInit {
       this.message.create("error", `Please enter your username and password`);
     }
     
+  }
+
+  register(){
+    this.router.navigateByUrl("/register");
   }
   // login() {
   //   this.http.login(this.username, this.password).subscribe((data:any) => {

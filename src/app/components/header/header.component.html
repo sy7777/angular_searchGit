@@ -8,13 +8,18 @@
 <!-- photo -->
 <div class="avater" nz-popover nzPopoverTitle="Current User" [nzPopoverContent]="contentTemplate"
   nzPopoverPlacement="bottomRight">
-<nz-avatar nzIcon="user" nzSrc="//zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+<nz-avatar nzIcon="user" nzSize="large"
+  nzSrc="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSr2mszsOCMCqMzyeR5NrIiXW-3t_GAIiE4R36RMFAziL-d2pVb">
+</nz-avatar>
 </div>
 
 <ng-template #contentTemplate>
   <div>
-    <p>User Name:</p>
-    <p>admin</p>
+    <strong>User Name:</strong>
+    <p>{{currentUser.nickName}}</p>
+    <!-- <nz-divider></nz-divider> -->
+    <strong>Email:</strong>
+    <p>{{currentUser.email}}</p>
   </div>
 </ng-template>
 

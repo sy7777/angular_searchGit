@@ -21,11 +21,11 @@ export class OneBoardComponent implements OnInit {
     private http: HttpserviceService, private userService: UserInfoService) { }
 
   async ngOnInit() {
-    await this.getId();
-    this.token = this.userService.getUserInfo().token;
-    const res: any = await this.http.getTaskBoard(this.id, this.token);
-    this.board = res.data;
-    console.log(this.board)
+    // await this.getId();
+    // this.token = this.userService.getUserInfo().token;
+    // const res: any = await this.http.getTaskBoard(this.id, this.token);
+    // this.board = res.data;
+    // console.log(this.board)
   }
 
   getId() {

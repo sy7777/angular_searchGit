@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /*定义滚动条高宽及背景
  高宽分别对应横竖滚动条的尺寸*/
-::-webkit-scrollbar {
+@import url("bootstrap/dist/css/bootstrap.min.css");
+ ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
   background-color: #F5F5F5;
@@ -24,3 +25,4 @@
   box-shadow:inset 0 0 6px rgba(0, 0, 0, .3);
   background-color: rgb(148, 217, 226);
 }
+
