@@ -48,6 +48,10 @@ export class HttpserviceService {
       })
     })
   }
+
+  fetchRepos(repoName) {
+    return this.httpService.get(`https://api.github.com/search/repositories?q=${repoName}&client_id=undefined&client_secret=undefined&sort=stars&order=desc`);
+  }
 }
 
 

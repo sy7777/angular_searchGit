@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 /*定义滚动条高宽及背景
  高宽分别对应横竖滚动条的尺寸*/
-@import url("bootstrap/dist/css/bootstrap.min.css");
  ::-webkit-scrollbar {
   width: 8px;
   height: 8px;

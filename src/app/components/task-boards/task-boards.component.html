@@ -1,24 +1,23 @@
-<!-- <p>task-boards works!</p>
-<input type="button" value="show" (click)="showBoard()">
-<div *ngFor="let item of taskBoard">
-    <button (click)="goOneBoard(item.boardId)">{{item.boardName}} </button>
-</div> -->
-
-<!-- <div class="example-input"> search bar-->
-<nz-empty nzNotFoundImage="assets/imgs/miao.png" nzNotFoundContent= "Search Repository~"></nz-empty>
+<nz-empty nzNotFoundImage="assets/imgs/miao.png" nzNotFoundContent="Search Repository~"></nz-empty>
 
 <div class="container">
-<div class="search-layout">
-  <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixIconButton">
-    <input placeholder="input here" nz-input [(ngModel)]="inputValue" (input)="onChange($event)"
-      [nzAutocomplete]="auto" />
-  </nz-input-group>
-  <ng-template #suffixIconButton>
-    <button nz-button nzType="primary" nzSize="large" nzSearch>
-      <i nz-icon nzType="search" nzTheme="outline"></i>
-    </button>
-  </ng-template>
-  <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
-
+  <div class="search-layout">
+    <nz-input-group nzSearch nzSize="large" [nzAddOnAfter]="suffixIconButton">
+      <input placeholder="wait 1 second after inputing" nz-input [(ngModel)]="inputValue" (input)="onChange()"
+        [nzAutocomplete]="auto" />
+    </nz-input-group>
+    <ng-template #suffixIconButton>
+      <button nz-button nzType="primary" nzSize="large" nzSearch (click)="searchRepo()">
+        <i nz-icon nzType="search" nzTheme="outline"></i>
+      </button>
+    </ng-template>
+    <nz-autocomplete [nzDataSource]="filteredOptions" #auto></nz-autocomplete>
+  </div>
 </div>
+<nz-divider></nz-divider>
+<nz-empty style="margin-top: 5rem; color: darkgrey;" *ngIf="repos.length === 0"></nz-empty>
+<nz-spin nzTip="Loading..." nzSize="large" *ngIf="loading">
+</nz-spin>
+<div id="results">
+  {{repos}}
 </div>
