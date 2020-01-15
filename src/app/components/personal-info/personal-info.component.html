@@ -30,7 +30,7 @@ Friends: <input type="text" [(ngModel)]="friendName"> <button (click)="addFriend
 <!-- <input type="radio" name="gender" id="" value="male" [(ngModel)]="gender">
 <input type="radio" name="gender" id="" value="female" [(ngModel)]="gender">
 <p [innerHTML]= "gender"></p> -->
-<nz-card style="width:300px;" [nzCover]="coverTemplate" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+<nz-card style="width:300px; text-align: center; margin-left: 33%;" [nzCover]="coverTemplate" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
   <nz-card-meta nzTitle="UserName" [nzDescription]="currentUser.nickName">
   </nz-card-meta>
   <br/>
