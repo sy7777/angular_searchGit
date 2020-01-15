@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpserviceService} from '../../services/httpservice.service';
 import { UserInfoService } from '../../services/user-info.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-personal-info',
@@ -21,9 +22,11 @@ export class PersonalInfoComponent implements OnInit {
   private userService: UserInfoService;
   private currentUser: any;
   private repos = [];
-  
+  private isVisible: boolean;
+  private isOkLoading: boolean;
+  private validateForm: any;
 
-  constructor(http: HttpserviceService, userService: UserInfoService) { 
+  constructor(http: HttpserviceService, userService: UserInfoService, private fb: FormBuilder) { 
     this.friends = [];
     this.friends.push("Bill1");
     this.friends.push("Bill2");
@@ -38,9 +41,14 @@ export class PersonalInfoComponent implements OnInit {
   }
 
   ngOnInit() {
-    
-    
+    this.validateForm = this.fb.group({
+      name: [null, [Validators.required]],
+      email: [null, [Validators.email, Validators.required]],
+    });
   }
+    
+    
+  
   public changeName(): void {
 
     this.name = "Zhenniubi";
@@ -73,4 +81,30 @@ export class PersonalInfoComponent implements OnInit {
       this.isLoadingOne = false;
     }, 2000);
   }
+
+  public edit(){
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    for (const i in this.validateForm.controls) {
+      this.validateForm.controls[i].markAsDirty();
+      this.validateForm.controls[i].updateValueAndValidity();
+    }
+    if (this.validateForm.valid) {
+      this.isOkLoading = true;
+
+      setTimeout(() => {
+        this.isVisible = false;
+        this.isOkLoading = false;
+      }, 3000);
+    }
+    
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
+  }
+
+  
 }

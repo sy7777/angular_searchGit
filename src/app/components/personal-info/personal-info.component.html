@@ -44,11 +44,33 @@ Friends: <input type="text" [(ngModel)]="friendName"> <button (click)="addFriend
 </ng-template>
 
 <ng-template #actionSetting>
-  <i nz-icon nzType="setting" onclick="changeName()"></i>
+  <i nz-icon nzType="setting" ></i>
 </ng-template>
 <ng-template #actionEdit>
-  <i nz-icon nzType="edit"></i>
+  <i nz-icon nzType="edit" (click)="edit()" > </i>
 </ng-template>
 <ng-template #actionEllipsis>
   <i nz-icon nzType="ellipsis"></i>
 </ng-template>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Update Your Information" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()"
+  [nzOkLoading]="isOkLoading">
+  
+     <form nz-form [formGroup]="validateForm">
+       <nz-form-item>
+         <nz-form-label [nzSpan]="4" nzRequired nzFor="name">New Name</nz-form-label>
+         <nz-form-control [nzSpan]="8" nzErrorTip="Please input your new name">
+           <input type="text" nz-input formControlName="name" placeholder="Please input your new name" />
+         </nz-form-control>
+       </nz-form-item>
+       <nz-form-item>
+         <nz-form-label [nzSpan]="4" nzRequired nzFor="email">Email
+         </nz-form-label>
+         <nz-form-control [nzSpan]="8" nzErrorTip="Please input your email">
+           <input type="text" nz-input formControlName="email" placeholder="Please input your new email" />
+         </nz-form-control>
+       </nz-form-item>
+
+
+     </form>
+  
+</nz-modal>
