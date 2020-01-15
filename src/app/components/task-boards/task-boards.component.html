@@ -19,5 +19,49 @@
 <nz-spin nzTip="Loading..." nzSize="large" *ngIf="loading">
 </nz-spin>
 <div id="results">
-  {{repos}}
+  <div class="gutter-example">
+
+    <div nz-row nzGutter="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }" nzType="flex" nzJustify="start"
+      nzAlign="top">
+      <!-- ------------- -->
+      <div nz-col [nzPull]="1" class="gutter-row" nzSpan="6" [nzXs]="{ span: 8, offset: 5}" [nzSm]="{ span: 8, offset: 5 }"
+        [nzMd]="{ span: 8, offset: 5 }" [nzLg]="{ span: 8, offset: 3 }" [nzXl]="{ span: 6, offset: 2 }"
+        [nzXXl]="{ span: 5, offset: 1 }" *ngFor="let repo of repos; let key = index;" style="margin-top: 1rem;">
+        <div class="gutter-box">
+          <nz-card id="nz-card" [nzCover]="coverTemplate"
+            [nzActions]="[actionSetting, actionEdit, actionEllipsis]" [nzTitle]="titleTemplate" [nzHoverable]="true">
+            <nz-divider></nz-divider>
+            <nz-card-meta [nzTitle]="userTemplate" [nzDescription]="repo.description" [nzAvatar]="avatarTemplate">
+            </nz-card-meta>
+          </nz-card>
+          <ng-template #userTemplate>
+            <a target="_blank" [href]="repo.owner.html_url">{{repo.owner.login}}</a>
+          </ng-template>
+          
+          <ng-template #avatarTemplate>
+            <nz-avatar [nzSrc]="repo.owner.avatar_url"></nz-avatar>
+          </ng-template>
+          <ng-template #titleTemplate>
+            <a target="_blank"  [href]="repo.html_url">{{repo.name}}</a>
+          </ng-template>
+
+          <ng-template #coverTemplate>
+            
+            <div nz-card-grid [ngStyle]="gridStyle"><strong>Language:</strong> {{repo.language}}</div>
+            <!-- <label> <strong>Description:</strong> </label>{{repo.description}} -->
+          </ng-template>
+          <ng-template #actionSetting>
+            <i nz-icon nzType="eye" nzTheme="outline"></i>{{repo.watchers}}
+          </ng-template>
+          <ng-template #actionEdit>
+            <i nz-icon nzType="star" nzTheme="outline"></i>{{repo.stargazers_count}}
+          </ng-template>
+          <ng-template #actionEllipsis>
+            <i nz-icon nzType="fork" nzTheme="outline"></i>{{repo.forks}}
+          </ng-template>
+        </div>
+      </div>
+      <!-- ----------- -->
+    </div>
+  </div>
 </div>

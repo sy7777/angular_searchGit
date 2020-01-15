@@ -13,12 +13,15 @@ export class PersonalInfoComponent implements OnInit {
   private isLoadingOne: boolean;
   private friendName: string;
   private friends: Array<string>;
-  private paths = "assets/imgs/123.jpg";
+  private paths = "assets/imgs/p_big3.jpg";
   private dateTime = new Date();
   private r : boolean;
   private gender: string;
   private http: HttpserviceService;
   private userService: UserInfoService;
+  private currentUser: any;
+  private repos = [];
+  
 
   constructor(http: HttpserviceService, userService: UserInfoService) { 
     this.friends = [];
@@ -29,13 +32,19 @@ export class PersonalInfoComponent implements OnInit {
     this.friends.push("Bill5");
     this.http = http;
     this.userService = userService;
+    
+    this.currentUser = this.userService.getUserInfo();
+    console.log(this.currentUser);
   }
 
   ngOnInit() {
+    
+    
   }
   public changeName(): void {
 
     this.name = "Zhenniubi";
+    console.log("111");
     // 成员变量加this,不加this就是方法里面的变量或形参
 
   }

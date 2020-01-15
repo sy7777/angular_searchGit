@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ViewEncapsulation } from '@angular/core';
 import { debounce } from 'lodash';
 import { NzMessageService } from 'ng-zorro-antd';
+
 @Component({
   selector: 'app-task-boards',
   templateUrl: './task-boards.component.html',
@@ -21,12 +22,14 @@ export class TaskBoardsComponent implements OnInit {
   private inputValue: string;
   private repos = [];
   private loading: boolean;
+  private currentUser: any;
 
   constructor(http: HttpserviceService, userService: UserInfoService, private router: Router, private message: NzMessageService) {
 
     this.http = http;
 
     this.userService = userService;
+    this.currentUser = userService.getUserInfo();
 
   }
 

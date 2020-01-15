@@ -2,7 +2,7 @@
 
 <!-- 两种方式绑定 -->
 <!-- name:<p id = "name"> {{name}}</p> -->
-name:<p id = "name" [innerHTML] = "name"> </p>
+<!-- name:<p id = "name" [innerHTML] = "name"> </p>
 
 <button nz-button nzType="primary" nzGhost=true (click)= "changeName()">Change Name</button>
 <button nz-button nzType="primary" nzGhost=true (click)="changeHtml()">Change Html </button>
@@ -19,16 +19,36 @@ Friends: <input type="text" [(ngModel)]="friendName"> <button (click)="addFriend
 <img [src]="paths" alt="">
 <div [ngClass]="{'red': friends.length === 0, 'blue': friends.length !== 0 }">
 
-</div>
+</div> -->
 <!-- 时间过滤器 | 还有uppercase lowercase等 -->
-<p >{{dateTime | date : 'yyyy-MM-dd'}}</p>
+<!-- <p >{{dateTime | date : 'yyyy-MM-dd'}}</p>
 <p>{{name |uppercaseDisaplay : 'hhh'}}</p>
 
 <input type="checkbox" name="remember me" [(ngModel)]="r">
-<p>{{r}}</p>
+<p>{{r}}</p> -->
 <!-- name是一样的才会有几选一的效果 -->
-<input type="radio" name="gender" id="" value="male" [(ngModel)]="gender">
+<!-- <input type="radio" name="gender" id="" value="male" [(ngModel)]="gender">
 <input type="radio" name="gender" id="" value="female" [(ngModel)]="gender">
-<p [innerHTML]= "gender"></p>
+<p [innerHTML]= "gender"></p> -->
+<nz-card style="width:300px;" [nzCover]="coverTemplate" [nzActions]="[actionSetting, actionEdit, actionEllipsis]">
+  <nz-card-meta nzTitle="UserName" [nzDescription]="currentUser.nickName">
+  </nz-card-meta>
+  <br/>
+  <nz-card-meta nzTitle="UserEmail" [nzDescription]="currentUser.email">
+  </nz-card-meta>
+</nz-card>
 
+<ng-template #coverTemplate>
+  <img alt="example"
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSr2mszsOCMCqMzyeR5NrIiXW-3t_GAIiE4R36RMFAziL-d2pVb" />
+</ng-template>
 
+<ng-template #actionSetting>
+  <i nz-icon nzType="setting" onclick="changeName()"></i>
+</ng-template>
+<ng-template #actionEdit>
+  <i nz-icon nzType="edit"></i>
+</ng-template>
+<ng-template #actionEllipsis>
+  <i nz-icon nzType="ellipsis"></i>
+</ng-template>

@@ -26,3 +26,15 @@
 .global-search-item-count {
   flex: none;
 }
+@media only screen and (max-width: 1200px) {
+  #nz-card {
+    width: 300px;
+  }
+}
+
+
+@media only screen and (max-width: 980px) {
+  #nz-card {
+    width: 400px;
+  }
+}
