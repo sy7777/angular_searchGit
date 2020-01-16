@@ -57,10 +57,12 @@ export class UserInfoService {
   }
 
   getAuth() {
+    this.isLogin = JSON.parse(window.localStorage.getItem("isLogin"));
     return this.isLogin;
   }
 
   setAuth(isLogin) {
     this.isLogin = isLogin;
+    window.localStorage.setItem("isLogin", JSON.stringify(this.isLogin));
   }
 }
