@@ -8,6 +8,7 @@ export class UserInfoService {
 
   private userInfo: any;
   private users = [{nickName: "admin", password:"hireyou", email:"admin@example.com"}];
+  private isLogin:boolean;
 
   constructor() {
     if(!window.localStorage.getItem("users")){
@@ -53,5 +54,13 @@ export class UserInfoService {
     } else {
       return true;
     }
+  }
+
+  getAuth() {
+    return this.isLogin;
+  }
+
+  setAuth(isLogin) {
+    this.isLogin = isLogin;
   }
 }

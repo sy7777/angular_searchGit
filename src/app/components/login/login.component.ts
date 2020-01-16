@@ -29,12 +29,15 @@ export class LoginComponent implements OnInit {
     if (this.username && this.password){
       const res = this.userService.checkLogin(this.username, this.password);
       if (res) {
+        this.userService.setAuth(true);
         this.router.navigateByUrl("/dashboard/task-boards");
         this.message.create("success", `Log in successfully`);
       }else{
+        this.userService.setAuth(false);
         this.message.create("error", `Wrong username or password`);
       }
     }else{
+      this.userService.setAuth(false);
       this.message.create("error", `Please enter your username and password`);
     }
     

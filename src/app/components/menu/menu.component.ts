@@ -18,6 +18,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 logOut(){
+  this.userService.setAuth(false);
   this.userService.clearCurrentUser();
 }
 

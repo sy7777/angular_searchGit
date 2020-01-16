@@ -6,6 +6,7 @@ import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TaskBoardsComponent } from './components/task-boards/task-boards.component';
 import { OneBoardComponent } from './components/one-board/one-board.component';
+import { AuthserviceService} from './services/authservice.service';
 
 // 展示路由组件第一步即可切换组件，需要创建组件，例如personalinfo,定义路由路径和规则，在想展示的文件里面写<router-outlet>
 const routes: Routes = [
@@ -19,7 +20,8 @@ const routes: Routes = [
     // { path: "login", component: LoginComponent },
     { path: "task-boards", component: TaskBoardsComponent },
     // :id是一个占位符
-    { path: "task-board/:id", component: OneBoardComponent }]
+    { path: "task-board/:id", component: OneBoardComponent }],
+    canActivate: [AuthserviceService]
 
   },
 
