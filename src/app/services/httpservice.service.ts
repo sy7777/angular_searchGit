@@ -27,16 +27,22 @@ export class HttpserviceService {
   }
 
   getTaskBoard(id, token) {
-    return new Promise((res, rej) => {
-      this.httpService.get(`http://192.168.0.8:8888/api/kan-ban/get_task_board/${id}`, {
-        headers: new HttpHeaders({
-          "token": token
+    // return new Promise((res, rej) => {
+    //   this.httpService.get(`http://192.168.0.8:8888/api/kan-ban/get_task_board/${id}`, {
+    //     headers: new HttpHeaders({
+    //       "token": token
 
-        })
-      }).subscribe(data => {
-        res(data);
-      });
-    });
+    //     })
+    //   }).subscribe(data => {
+    //     res(data);
+    //   });
+    // });
+    return this.httpService.get(`http://192.168.0.8:8888/api/kan-ban/get_task_board/${id}`, {
+      headers: new HttpHeaders({
+        "token": token
+
+      })
+    }).toPromise()
   }
 
 
